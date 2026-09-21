@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    image: score-repeat-expansion:latest
+    ports:
+      - "8000:8000"
+    environment:
+      # server-side cap for expansion steps (per-request max_steps may be lower)
+      MAX_EXPAND_STEPS: "1000"
+    restart: unless-stopped
